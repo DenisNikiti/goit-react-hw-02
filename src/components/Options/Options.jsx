@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import css from "./Options.module.css";
-export default function Options({ onUpdateFeedback, resetFeedback }) {
+export default function Options({
+  onUpdateFeedback,
+  resetFeedback,
+  totalFeedback,
+}) {
   return (
     <div>
       <button
@@ -28,12 +32,20 @@ export default function Options({ onUpdateFeedback, resetFeedback }) {
         }}
         className={css.button}
       >
-        bad
+        Bad
       </button>
-
-      <button type="button" className={css.button} onClick={resetFeedback}>
-        Reset
-      </button>
+      {/* {totalFeedback && (
+        <button type="button" className={css.button} onClick={resetFeedback}>
+          Reset
+        </button>
+      )} */}
+      {totalFeedback ? (
+        <button type="button" className={css.button} onClick={resetFeedback}>
+          Reset
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
@@ -41,4 +53,5 @@ export default function Options({ onUpdateFeedback, resetFeedback }) {
 Options.propTypes = {
   onUpdateFeedback: PropTypes.func.isRequired,
   resetFeedback: PropTypes.func.isRequired,
+  totalFeedback: PropTypes.number.isRequired,
 };

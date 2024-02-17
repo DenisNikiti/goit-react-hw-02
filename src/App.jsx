@@ -46,6 +46,7 @@ function App() {
         feedbacksbuttons={feedbacks}
         onUpdateFeedback={updateFeedback}
         resetFeedback={resetFeedback}
+        totalFeedback={totalFeedback}
       />
 
       {totalFeedback ? (
