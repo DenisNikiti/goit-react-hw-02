@@ -1,25 +1,23 @@
 import PropTypes from "prop-types";
 
-export default function Feedback({ feedbacks }) {
-  const feedbacksarray = Object.entries(feedbacks);
-
-     
-    return (
-        
-       <div>
-      {feedbacksarray.map((element) => {
-          return <p key={element[0]}>{element[0]} : {element[1] }</p>;
-      })}
+export default function Feedback({
+  feedbacks: { good, neutral, bad },
+  totalFeedback,
+  feedbackpositive,
+}) {
+  return (
+    <div>
+      <p>Good: {good}</p>
+      <p> Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
+      <p>Totalfeedback: {totalFeedback} </p>
+      <p>Positive: {feedbackpositive}%</p>
     </div>
- 
- 
-    )
-        
+  );
 }
-
-
-
 
 Feedback.propTypes = {
   feedbacks: PropTypes.object.isRequired,
+  totalFeedback: PropTypes.number.isRequired,
+  feedbackpositive: PropTypes.number.isRequired,
 };
